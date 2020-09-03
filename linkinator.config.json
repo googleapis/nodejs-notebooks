@@ -3,9 +3,7 @@
   "skip": [
     "https://codecov.io/gh/googleapis/",
     "www.googleapis.com",
-    "img.shields.io",
-    "googleapis.dev/nodejs/notebooks/latest",
-    "github.com/googleapis/nodejs-notebooks/blob/master/CHANGELOG.md"
+    "img.shields.io"
   ],
   "silent": true,
   "concurrency": 10

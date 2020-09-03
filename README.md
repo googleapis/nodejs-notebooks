@@ -32,8 +32,8 @@ Google APIs Client Libraries, in [Client Libraries Explained][explained].
 * [Quickstart](#quickstart)
   * [Before you begin](#before-you-begin)
   * [Installing the client library](#installing-the-client-library)
-
-
+  * [Using the client library](#using-the-client-library)
+* [Samples](#samples)
 * [Versioning](#versioning)
 * [Contributing](#contributing)
 * [License](#license)
@@ -55,6 +55,40 @@ npm install @google-cloud/notebooks
 ```
 
 
+### Using the client library
+
+```javascript
+/**
+ * TODO(developer): Uncomment these variables before running the sample.
+ */
+// const projectId = 'my-project';
+// const location = 'global';
+
+// Imports the Google Cloud Some API library
+const {NotebookServiceClient} = require('@google-cloud/notebooks');
+const client = new NotebookServiceClient();
+async function listInstances() {
+  const [instances] = await client.listInstances({
+    parent: `projects/${projectId}/locations/${location}`,
+  });
+  for (const instance of instances) {
+    console.info(`instance: ${instance.name}`);
+  }
+}
+listInstances();
+
+```
+
+
+
+## Samples
+
+Samples are in the [`samples/`](https://github.com/googleapis/nodejs-notebooks/tree/master/samples) directory. The samples' `README.md`
+has instructions for running the samples.
+
+| Sample                      | Source Code                       | Try it |
+| --------------------------- | --------------------------------- | ------ |
+| Quickstart | [source code](https://github.com/googleapis/nodejs-notebooks/blob/master/samples/quickstart.js) | [![Open in Cloud Shell][shell_img]](https://console.cloud.google.com/cloudshell/open?git_repo=https://github.com/googleapis/nodejs-notebooks&page=editor&open_in_editor=samples/quickstart.js,samples/README.md) |
 
 
 

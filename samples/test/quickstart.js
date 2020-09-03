@@ -30,7 +30,9 @@ const project = process.env.GCLOUD_PROJECT;
 
 describe('Quickstart', () => {
   it('should run quickstart', async () => {
-    const output = execSync(`node ./quickstart.js ${project} us-west1-b`, {cwd});
+    const output = execSync(`node ./quickstart.js ${project} us-west1-b`, {
+      cwd,
+    });
     assert.match(output, /instance: projects/);
   });
 });
