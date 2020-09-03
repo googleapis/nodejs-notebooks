@@ -16,7 +16,7 @@
 // ** https://github.com/googleapis/gapic-generator-typescript **
 // ** All changes to this file may be overwritten. **
 
-import {NotebookServiceClient} from 'notebooks';
+import {NotebookServiceClient} from '@google-cloud/notebooks';
 
 function main() {
   new NotebookServiceClient();

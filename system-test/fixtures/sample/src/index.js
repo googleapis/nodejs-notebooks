@@ -17,7 +17,7 @@
 // ** All changes to this file may be overwritten. **
 
 /* eslint-disable node/no-missing-require, no-unused-vars */
-const notebooks = require('notebooks');
+const notebooks = require('@google-cloud/notebooks');
 
 function main() {
   const notebookServiceClient = new notebooks.NotebookServiceClient();
