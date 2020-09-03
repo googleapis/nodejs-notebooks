@@ -30,12 +30,7 @@ const project = process.env.GCLOUD_PROJECT;
 
 describe('Quickstart', () => {
   it('should run quickstart', async () => {
-    try {
-      // TODO: write an actual functional test:
-      execSync(`node ./quickstart.js ${project} global`, {cwd});
-      assert('unreachable');
-    } catch (err) {
-      assert.match(err.message, /Read access to project/);
-    }
+    const output = execSync(`node ./quickstart.js ${project} us-west1-b`, {cwd});
+    assert.match(output, /instance: projects/);
   });
 });

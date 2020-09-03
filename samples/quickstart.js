@@ -29,7 +29,9 @@ async function main(projectId, location) {
     const [instances] = await client.listInstances({
       parent: `projects/${projectId}/locations/${location}`,
     });
-    console.info(instances);
+    for (const instance of instances) {
+      console.info(`instance: ${instance.name}`);
+    }
   }
   listInstances();
   // [END notebooks_quickstart]
