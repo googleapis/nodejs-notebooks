@@ -32,13 +32,10 @@ describe('Quickstart', () => {
   it('should run quickstart', async () => {
     try {
       // TODO: write an actual functional test:
-      execSync(
-        `node ./quickstart.js ${project} global my-agent audio.raw AUDIO_ENCODING_LINEAR_16 16000 en`,
-        {cwd}
-      );
+      execSync(`node ./quickstart.js ${project} global`, {cwd});
       assert('unreachable');
     } catch (err) {
-      assert.match(err.message, /no such file or directory, open 'audio.raw/);
+      assert.match(err.message, /Read access to project/);
     }
   });
 });

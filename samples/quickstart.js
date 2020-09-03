@@ -14,7 +14,7 @@
 
 'use strict';
 
-async function main(projectId) {
+async function main(projectId, location) {
   // [START notebooks_quickstart]
   /**
    * TODO(developer): Uncomment these variables before running the sample.
@@ -23,9 +23,15 @@ async function main(projectId) {
   // const location = 'global';
 
   // Imports the Google Cloud Some API library
-  const {SessionsClient} = require('@google-cloud/dialogflow-cx');
-  const client = new SessionsClient();
-
+  const {NotebookServiceClient} = require('@google-cloud/notebooks');
+  const client = new NotebookServiceClient();
+  async function listInstances() {
+    const [instances] = await client.listInstances({
+      parent: `projects/${projectId}/locations/${location}`,
+    });
+    console.info(instances);
+  }
+  listInstances();
   // [END notebooks_quickstart]
 }
 
