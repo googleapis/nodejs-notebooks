@@ -36,7 +36,7 @@ import {operationsProtos} from 'google-gax';
 const version = require('../../../package.json').version;
 
 /**
- *  API service for Cloud AI Platform Notebooks.
+ *  API v1beta1 service for Cloud AI Platform Notebooks.
  * @class
  * @memberof v1beta1
  */
@@ -1123,8 +1123,8 @@ export class NotebookServiceClient {
    * @param {number} request.coreCount
    *   Required. Count of cores of this accelerator. Note that not all combinations
    *   of `type` and `core_count` are valid. Check [GPUs on
-   *   Compute Engine](/compute/docs/gpus/#gpus-list) to find a valid
-   *   combination. TPUs are not supported.
+   *   Compute Engine](https://cloud.google.com/compute/docs/gpus/#gpus-list) to
+   *   find a valid combination. TPUs are not supported.
    * @param {object} [options]
    *   Call options. See {@link https://googleapis.dev/nodejs/google-gax/latest/interfaces/CallOptions.html|CallOptions} for more details.
    * @returns {Promise} - The promise which resolves to an array.
@@ -1265,7 +1265,8 @@ export class NotebookServiceClient {
    *   Required. Format:
    *   `projects/{project_id}/locations/{location}/instances/{instance_id}`
    * @param {string} request.machineType
-   *   Required. The [Compute Engine machine type](/compute/docs/machine-types).
+   *   Required. The [Compute Engine machine
+   *   type](https://cloud.google.com/compute/docs/machine-types).
    * @param {object} [options]
    *   Call options. See {@link https://googleapis.dev/nodejs/google-gax/latest/interfaces/CallOptions.html|CallOptions} for more details.
    * @returns {Promise} - The promise which resolves to an array.
