@@ -4,7 +4,7 @@
       "git": {
         "name": ".",
         "remote": "https://github.com/googleapis/nodejs-notebooks.git",
-        "sha": "5b8bf62698cd382fcc1decb23a0131fe115b2119"
+        "sha": "033c9ce7b4eda3ba3c670e6e6cc7f80506f6be58"
       }
     },
     {
