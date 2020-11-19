@@ -31,6 +31,11 @@ import * as path from 'path';
 import {Transform} from 'stream';
 import {RequestType} from 'google-gax/build/src/apitypes';
 import * as protos from '../../protos/protos';
+/**
+ * Client JSON configuration object, loaded from
+ * `src/v1beta1/notebook_service_client_config.json`.
+ * This file defines retry strategy and timeouts for all API methods in this library.
+ */
 import * as gapicConfig from './notebook_service_client_config.json';
 import {operationsProtos} from 'google-gax';
 const version = require('../../../package.json').version;
@@ -85,9 +90,9 @@ export class NotebookServiceClient {
    *     your project ID will be detected automatically.
    * @param {string} [options.apiEndpoint] - The domain name of the
    *     API remote host.
-   * @param {gax.ClientConfig} [options.clientConfig] - client configuration override.
-   *     Follows the structure of `notebook_service_client_config.json`.
-   * @param {boolean} fallback - Use HTTP fallback mode.
+   * @param {gax.ClientConfig} [options.clientConfig] - Client configuration override.
+   *     Follows the structure of {@link gapicConfig}.
+   * @param {boolean} [options.fallback] - Use HTTP fallback mode.
    *     In fallback mode, a special browser-compatible transport implementation is used
    *     instead of gRPC transport. In browser context (if the `window` object is defined)
    *     the fallback mode is enabled automatically; set `options.fallback` to `false`
@@ -100,6 +105,7 @@ export class NotebookServiceClient {
       opts?.servicePath || opts?.apiEndpoint || staticMembers.servicePath;
     const port = opts?.port || staticMembers.port;
     const clientConfig = opts?.clientConfig ?? {};
+    // eslint-disable-next-line no-undef
     const fallback =
       opts?.fallback ??
       (typeof window !== 'undefined' && typeof window.fetch !== 'undefined');
@@ -523,7 +529,7 @@ export class NotebookServiceClient {
   // -------------------
   getInstance(
     request: protos.google.cloud.notebooks.v1beta1.IGetInstanceRequest,
-    options?: gax.CallOptions
+    options?: CallOptions
   ): Promise<
     [
       protos.google.cloud.notebooks.v1beta1.IInstance,
@@ -533,7 +539,7 @@ export class NotebookServiceClient {
   >;
   getInstance(
     request: protos.google.cloud.notebooks.v1beta1.IGetInstanceRequest,
-    options: gax.CallOptions,
+    options: CallOptions,
     callback: Callback<
       protos.google.cloud.notebooks.v1beta1.IInstance,
       | protos.google.cloud.notebooks.v1beta1.IGetInstanceRequest
@@ -573,7 +579,7 @@ export class NotebookServiceClient {
   getInstance(
     request: protos.google.cloud.notebooks.v1beta1.IGetInstanceRequest,
     optionsOrCallback?:
-      | gax.CallOptions
+      | CallOptions
       | Callback<
           protos.google.cloud.notebooks.v1beta1.IInstance,
           | protos.google.cloud.notebooks.v1beta1.IGetInstanceRequest
@@ -596,12 +602,12 @@ export class NotebookServiceClient {
     ]
   > | void {
     request = request || {};
-    let options: gax.CallOptions;
+    let options: CallOptions;
     if (typeof optionsOrCallback === 'function' && callback === undefined) {
       callback = optionsOrCallback;
       options = {};
     } else {
-      options = optionsOrCallback as gax.CallOptions;
+      options = optionsOrCallback as CallOptions;
     }
     options = options || {};
     options.otherArgs = options.otherArgs || {};
@@ -616,7 +622,7 @@ export class NotebookServiceClient {
   }
   isInstanceUpgradeable(
     request: protos.google.cloud.notebooks.v1beta1.IIsInstanceUpgradeableRequest,
-    options?: gax.CallOptions
+    options?: CallOptions
   ): Promise<
     [
       protos.google.cloud.notebooks.v1beta1.IIsInstanceUpgradeableResponse,
@@ -629,7 +635,7 @@ export class NotebookServiceClient {
   >;
   isInstanceUpgradeable(
     request: protos.google.cloud.notebooks.v1beta1.IIsInstanceUpgradeableRequest,
-    options: gax.CallOptions,
+    options: CallOptions,
     callback: Callback<
       protos.google.cloud.notebooks.v1beta1.IIsInstanceUpgradeableResponse,
       | protos.google.cloud.notebooks.v1beta1.IIsInstanceUpgradeableRequest
@@ -669,7 +675,7 @@ export class NotebookServiceClient {
   isInstanceUpgradeable(
     request: protos.google.cloud.notebooks.v1beta1.IIsInstanceUpgradeableRequest,
     optionsOrCallback?:
-      | gax.CallOptions
+      | CallOptions
       | Callback<
           protos.google.cloud.notebooks.v1beta1.IIsInstanceUpgradeableResponse,
           | protos.google.cloud.notebooks.v1beta1.IIsInstanceUpgradeableRequest
@@ -695,12 +701,12 @@ export class NotebookServiceClient {
     ]
   > | void {
     request = request || {};
-    let options: gax.CallOptions;
+    let options: CallOptions;
     if (typeof optionsOrCallback === 'function' && callback === undefined) {
       callback = optionsOrCallback;
       options = {};
     } else {
-      options = optionsOrCallback as gax.CallOptions;
+      options = optionsOrCallback as CallOptions;
     }
     options = options || {};
     options.otherArgs = options.otherArgs || {};
@@ -715,7 +721,7 @@ export class NotebookServiceClient {
   }
   getEnvironment(
     request: protos.google.cloud.notebooks.v1beta1.IGetEnvironmentRequest,
-    options?: gax.CallOptions
+    options?: CallOptions
   ): Promise<
     [
       protos.google.cloud.notebooks.v1beta1.IEnvironment,
@@ -725,7 +731,7 @@ export class NotebookServiceClient {
   >;
   getEnvironment(
     request: protos.google.cloud.notebooks.v1beta1.IGetEnvironmentRequest,
-    options: gax.CallOptions,
+    options: CallOptions,
     callback: Callback<
       protos.google.cloud.notebooks.v1beta1.IEnvironment,
       | protos.google.cloud.notebooks.v1beta1.IGetEnvironmentRequest
@@ -765,7 +771,7 @@ export class NotebookServiceClient {
   getEnvironment(
     request: protos.google.cloud.notebooks.v1beta1.IGetEnvironmentRequest,
     optionsOrCallback?:
-      | gax.CallOptions
+      | CallOptions
       | Callback<
           protos.google.cloud.notebooks.v1beta1.IEnvironment,
           | protos.google.cloud.notebooks.v1beta1.IGetEnvironmentRequest
@@ -788,12 +794,12 @@ export class NotebookServiceClient {
     ]
   > | void {
     request = request || {};
-    let options: gax.CallOptions;
+    let options: CallOptions;
     if (typeof optionsOrCallback === 'function' && callback === undefined) {
       callback = optionsOrCallback;
       options = {};
     } else {
-      options = optionsOrCallback as gax.CallOptions;
+      options = optionsOrCallback as CallOptions;
     }
     options = options || {};
     options.otherArgs = options.otherArgs || {};
@@ -809,7 +815,7 @@ export class NotebookServiceClient {
 
   createInstance(
     request: protos.google.cloud.notebooks.v1beta1.ICreateInstanceRequest,
-    options?: gax.CallOptions
+    options?: CallOptions
   ): Promise<
     [
       LROperation<
@@ -822,7 +828,7 @@ export class NotebookServiceClient {
   >;
   createInstance(
     request: protos.google.cloud.notebooks.v1beta1.ICreateInstanceRequest,
-    options: gax.CallOptions,
+    options: CallOptions,
     callback: Callback<
       LROperation<
         protos.google.cloud.notebooks.v1beta1.IInstance,
@@ -871,7 +877,7 @@ export class NotebookServiceClient {
   createInstance(
     request: protos.google.cloud.notebooks.v1beta1.ICreateInstanceRequest,
     optionsOrCallback?:
-      | gax.CallOptions
+      | CallOptions
       | Callback<
           LROperation<
             protos.google.cloud.notebooks.v1beta1.IInstance,
@@ -899,12 +905,12 @@ export class NotebookServiceClient {
     ]
   > | void {
     request = request || {};
-    let options: gax.CallOptions;
+    let options: CallOptions;
     if (typeof optionsOrCallback === 'function' && callback === undefined) {
       callback = optionsOrCallback;
       options = {};
     } else {
-      options = optionsOrCallback as gax.CallOptions;
+      options = optionsOrCallback as CallOptions;
     }
     options = options || {};
     options.otherArgs = options.otherArgs || {};
@@ -956,7 +962,7 @@ export class NotebookServiceClient {
   }
   registerInstance(
     request: protos.google.cloud.notebooks.v1beta1.IRegisterInstanceRequest,
-    options?: gax.CallOptions
+    options?: CallOptions
   ): Promise<
     [
       LROperation<
@@ -969,7 +975,7 @@ export class NotebookServiceClient {
   >;
   registerInstance(
     request: protos.google.cloud.notebooks.v1beta1.IRegisterInstanceRequest,
-    options: gax.CallOptions,
+    options: CallOptions,
     callback: Callback<
       LROperation<
         protos.google.cloud.notebooks.v1beta1.IInstance,
@@ -1022,7 +1028,7 @@ export class NotebookServiceClient {
   registerInstance(
     request: protos.google.cloud.notebooks.v1beta1.IRegisterInstanceRequest,
     optionsOrCallback?:
-      | gax.CallOptions
+      | CallOptions
       | Callback<
           LROperation<
             protos.google.cloud.notebooks.v1beta1.IInstance,
@@ -1050,12 +1056,12 @@ export class NotebookServiceClient {
     ]
   > | void {
     request = request || {};
-    let options: gax.CallOptions;
+    let options: CallOptions;
     if (typeof optionsOrCallback === 'function' && callback === undefined) {
       callback = optionsOrCallback;
       options = {};
     } else {
-      options = optionsOrCallback as gax.CallOptions;
+      options = optionsOrCallback as CallOptions;
     }
     options = options || {};
     options.otherArgs = options.otherArgs || {};
@@ -1107,7 +1113,7 @@ export class NotebookServiceClient {
   }
   setInstanceAccelerator(
     request: protos.google.cloud.notebooks.v1beta1.ISetInstanceAcceleratorRequest,
-    options?: gax.CallOptions
+    options?: CallOptions
   ): Promise<
     [
       LROperation<
@@ -1120,7 +1126,7 @@ export class NotebookServiceClient {
   >;
   setInstanceAccelerator(
     request: protos.google.cloud.notebooks.v1beta1.ISetInstanceAcceleratorRequest,
-    options: gax.CallOptions,
+    options: CallOptions,
     callback: Callback<
       LROperation<
         protos.google.cloud.notebooks.v1beta1.IInstance,
@@ -1172,7 +1178,7 @@ export class NotebookServiceClient {
   setInstanceAccelerator(
     request: protos.google.cloud.notebooks.v1beta1.ISetInstanceAcceleratorRequest,
     optionsOrCallback?:
-      | gax.CallOptions
+      | CallOptions
       | Callback<
           LROperation<
             protos.google.cloud.notebooks.v1beta1.IInstance,
@@ -1200,12 +1206,12 @@ export class NotebookServiceClient {
     ]
   > | void {
     request = request || {};
-    let options: gax.CallOptions;
+    let options: CallOptions;
     if (typeof optionsOrCallback === 'function' && callback === undefined) {
       callback = optionsOrCallback;
       options = {};
     } else {
-      options = optionsOrCallback as gax.CallOptions;
+      options = optionsOrCallback as CallOptions;
     }
     options = options || {};
     options.otherArgs = options.otherArgs || {};
@@ -1261,7 +1267,7 @@ export class NotebookServiceClient {
   }
   setInstanceMachineType(
     request: protos.google.cloud.notebooks.v1beta1.ISetInstanceMachineTypeRequest,
-    options?: gax.CallOptions
+    options?: CallOptions
   ): Promise<
     [
       LROperation<
@@ -1274,7 +1280,7 @@ export class NotebookServiceClient {
   >;
   setInstanceMachineType(
     request: protos.google.cloud.notebooks.v1beta1.ISetInstanceMachineTypeRequest,
-    options: gax.CallOptions,
+    options: CallOptions,
     callback: Callback<
       LROperation<
         protos.google.cloud.notebooks.v1beta1.IInstance,
@@ -1322,7 +1328,7 @@ export class NotebookServiceClient {
   setInstanceMachineType(
     request: protos.google.cloud.notebooks.v1beta1.ISetInstanceMachineTypeRequest,
     optionsOrCallback?:
-      | gax.CallOptions
+      | CallOptions
       | Callback<
           LROperation<
             protos.google.cloud.notebooks.v1beta1.IInstance,
@@ -1350,12 +1356,12 @@ export class NotebookServiceClient {
     ]
   > | void {
     request = request || {};
-    let options: gax.CallOptions;
+    let options: CallOptions;
     if (typeof optionsOrCallback === 'function' && callback === undefined) {
       callback = optionsOrCallback;
       options = {};
     } else {
-      options = optionsOrCallback as gax.CallOptions;
+      options = optionsOrCallback as CallOptions;
     }
     options = options || {};
     options.otherArgs = options.otherArgs || {};
@@ -1411,7 +1417,7 @@ export class NotebookServiceClient {
   }
   setInstanceLabels(
     request: protos.google.cloud.notebooks.v1beta1.ISetInstanceLabelsRequest,
-    options?: gax.CallOptions
+    options?: CallOptions
   ): Promise<
     [
       LROperation<
@@ -1424,7 +1430,7 @@ export class NotebookServiceClient {
   >;
   setInstanceLabels(
     request: protos.google.cloud.notebooks.v1beta1.ISetInstanceLabelsRequest,
-    options: gax.CallOptions,
+    options: CallOptions,
     callback: Callback<
       LROperation<
         protos.google.cloud.notebooks.v1beta1.IInstance,
@@ -1472,7 +1478,7 @@ export class NotebookServiceClient {
   setInstanceLabels(
     request: protos.google.cloud.notebooks.v1beta1.ISetInstanceLabelsRequest,
     optionsOrCallback?:
-      | gax.CallOptions
+      | CallOptions
       | Callback<
           LROperation<
             protos.google.cloud.notebooks.v1beta1.IInstance,
@@ -1500,12 +1506,12 @@ export class NotebookServiceClient {
     ]
   > | void {
     request = request || {};
-    let options: gax.CallOptions;
+    let options: CallOptions;
     if (typeof optionsOrCallback === 'function' && callback === undefined) {
       callback = optionsOrCallback;
       options = {};
     } else {
-      options = optionsOrCallback as gax.CallOptions;
+      options = optionsOrCallback as CallOptions;
     }
     options = options || {};
     options.otherArgs = options.otherArgs || {};
@@ -1557,7 +1563,7 @@ export class NotebookServiceClient {
   }
   deleteInstance(
     request: protos.google.cloud.notebooks.v1beta1.IDeleteInstanceRequest,
-    options?: gax.CallOptions
+    options?: CallOptions
   ): Promise<
     [
       LROperation<
@@ -1570,7 +1576,7 @@ export class NotebookServiceClient {
   >;
   deleteInstance(
     request: protos.google.cloud.notebooks.v1beta1.IDeleteInstanceRequest,
-    options: gax.CallOptions,
+    options: CallOptions,
     callback: Callback<
       LROperation<
         protos.google.protobuf.IEmpty,
@@ -1615,7 +1621,7 @@ export class NotebookServiceClient {
   deleteInstance(
     request: protos.google.cloud.notebooks.v1beta1.IDeleteInstanceRequest,
     optionsOrCallback?:
-      | gax.CallOptions
+      | CallOptions
       | Callback<
           LROperation<
             protos.google.protobuf.IEmpty,
@@ -1643,12 +1649,12 @@ export class NotebookServiceClient {
     ]
   > | void {
     request = request || {};
-    let options: gax.CallOptions;
+    let options: CallOptions;
     if (typeof optionsOrCallback === 'function' && callback === undefined) {
       callback = optionsOrCallback;
       options = {};
     } else {
-      options = optionsOrCallback as gax.CallOptions;
+      options = optionsOrCallback as CallOptions;
     }
     options = options || {};
     options.otherArgs = options.otherArgs || {};
@@ -1700,7 +1706,7 @@ export class NotebookServiceClient {
   }
   startInstance(
     request: protos.google.cloud.notebooks.v1beta1.IStartInstanceRequest,
-    options?: gax.CallOptions
+    options?: CallOptions
   ): Promise<
     [
       LROperation<
@@ -1713,7 +1719,7 @@ export class NotebookServiceClient {
   >;
   startInstance(
     request: protos.google.cloud.notebooks.v1beta1.IStartInstanceRequest,
-    options: gax.CallOptions,
+    options: CallOptions,
     callback: Callback<
       LROperation<
         protos.google.cloud.notebooks.v1beta1.IInstance,
@@ -1758,7 +1764,7 @@ export class NotebookServiceClient {
   startInstance(
     request: protos.google.cloud.notebooks.v1beta1.IStartInstanceRequest,
     optionsOrCallback?:
-      | gax.CallOptions
+      | CallOptions
       | Callback<
           LROperation<
             protos.google.cloud.notebooks.v1beta1.IInstance,
@@ -1786,12 +1792,12 @@ export class NotebookServiceClient {
     ]
   > | void {
     request = request || {};
-    let options: gax.CallOptions;
+    let options: CallOptions;
     if (typeof optionsOrCallback === 'function' && callback === undefined) {
       callback = optionsOrCallback;
       options = {};
     } else {
-      options = optionsOrCallback as gax.CallOptions;
+      options = optionsOrCallback as CallOptions;
     }
     options = options || {};
     options.otherArgs = options.otherArgs || {};
@@ -1843,7 +1849,7 @@ export class NotebookServiceClient {
   }
   stopInstance(
     request: protos.google.cloud.notebooks.v1beta1.IStopInstanceRequest,
-    options?: gax.CallOptions
+    options?: CallOptions
   ): Promise<
     [
       LROperation<
@@ -1856,7 +1862,7 @@ export class NotebookServiceClient {
   >;
   stopInstance(
     request: protos.google.cloud.notebooks.v1beta1.IStopInstanceRequest,
-    options: gax.CallOptions,
+    options: CallOptions,
     callback: Callback<
       LROperation<
         protos.google.cloud.notebooks.v1beta1.IInstance,
@@ -1901,7 +1907,7 @@ export class NotebookServiceClient {
   stopInstance(
     request: protos.google.cloud.notebooks.v1beta1.IStopInstanceRequest,
     optionsOrCallback?:
-      | gax.CallOptions
+      | CallOptions
       | Callback<
           LROperation<
             protos.google.cloud.notebooks.v1beta1.IInstance,
@@ -1929,12 +1935,12 @@ export class NotebookServiceClient {
     ]
   > | void {
     request = request || {};
-    let options: gax.CallOptions;
+    let options: CallOptions;
     if (typeof optionsOrCallback === 'function' && callback === undefined) {
       callback = optionsOrCallback;
       options = {};
     } else {
-      options = optionsOrCallback as gax.CallOptions;
+      options = optionsOrCallback as CallOptions;
     }
     options = options || {};
     options.otherArgs = options.otherArgs || {};
@@ -1986,7 +1992,7 @@ export class NotebookServiceClient {
   }
   resetInstance(
     request: protos.google.cloud.notebooks.v1beta1.IResetInstanceRequest,
-    options?: gax.CallOptions
+    options?: CallOptions
   ): Promise<
     [
       LROperation<
@@ -1999,7 +2005,7 @@ export class NotebookServiceClient {
   >;
   resetInstance(
     request: protos.google.cloud.notebooks.v1beta1.IResetInstanceRequest,
-    options: gax.CallOptions,
+    options: CallOptions,
     callback: Callback<
       LROperation<
         protos.google.cloud.notebooks.v1beta1.IInstance,
@@ -2044,7 +2050,7 @@ export class NotebookServiceClient {
   resetInstance(
     request: protos.google.cloud.notebooks.v1beta1.IResetInstanceRequest,
     optionsOrCallback?:
-      | gax.CallOptions
+      | CallOptions
       | Callback<
           LROperation<
             protos.google.cloud.notebooks.v1beta1.IInstance,
@@ -2072,12 +2078,12 @@ export class NotebookServiceClient {
     ]
   > | void {
     request = request || {};
-    let options: gax.CallOptions;
+    let options: CallOptions;
     if (typeof optionsOrCallback === 'function' && callback === undefined) {
       callback = optionsOrCallback;
       options = {};
     } else {
-      options = optionsOrCallback as gax.CallOptions;
+      options = optionsOrCallback as CallOptions;
     }
     options = options || {};
     options.otherArgs = options.otherArgs || {};
@@ -2129,7 +2135,7 @@ export class NotebookServiceClient {
   }
   reportInstanceInfo(
     request: protos.google.cloud.notebooks.v1beta1.IReportInstanceInfoRequest,
-    options?: gax.CallOptions
+    options?: CallOptions
   ): Promise<
     [
       LROperation<
@@ -2142,7 +2148,7 @@ export class NotebookServiceClient {
   >;
   reportInstanceInfo(
     request: protos.google.cloud.notebooks.v1beta1.IReportInstanceInfoRequest,
-    options: gax.CallOptions,
+    options: CallOptions,
     callback: Callback<
       LROperation<
         protos.google.cloud.notebooks.v1beta1.IInstance,
@@ -2196,7 +2202,7 @@ export class NotebookServiceClient {
   reportInstanceInfo(
     request: protos.google.cloud.notebooks.v1beta1.IReportInstanceInfoRequest,
     optionsOrCallback?:
-      | gax.CallOptions
+      | CallOptions
       | Callback<
           LROperation<
             protos.google.cloud.notebooks.v1beta1.IInstance,
@@ -2224,12 +2230,12 @@ export class NotebookServiceClient {
     ]
   > | void {
     request = request || {};
-    let options: gax.CallOptions;
+    let options: CallOptions;
     if (typeof optionsOrCallback === 'function' && callback === undefined) {
       callback = optionsOrCallback;
       options = {};
     } else {
-      options = optionsOrCallback as gax.CallOptions;
+      options = optionsOrCallback as CallOptions;
     }
     options = options || {};
     options.otherArgs = options.otherArgs || {};
@@ -2281,7 +2287,7 @@ export class NotebookServiceClient {
   }
   upgradeInstance(
     request: protos.google.cloud.notebooks.v1beta1.IUpgradeInstanceRequest,
-    options?: gax.CallOptions
+    options?: CallOptions
   ): Promise<
     [
       LROperation<
@@ -2294,7 +2300,7 @@ export class NotebookServiceClient {
   >;
   upgradeInstance(
     request: protos.google.cloud.notebooks.v1beta1.IUpgradeInstanceRequest,
-    options: gax.CallOptions,
+    options: CallOptions,
     callback: Callback<
       LROperation<
         protos.google.cloud.notebooks.v1beta1.IInstance,
@@ -2339,7 +2345,7 @@ export class NotebookServiceClient {
   upgradeInstance(
     request: protos.google.cloud.notebooks.v1beta1.IUpgradeInstanceRequest,
     optionsOrCallback?:
-      | gax.CallOptions
+      | CallOptions
       | Callback<
           LROperation<
             protos.google.cloud.notebooks.v1beta1.IInstance,
@@ -2367,12 +2373,12 @@ export class NotebookServiceClient {
     ]
   > | void {
     request = request || {};
-    let options: gax.CallOptions;
+    let options: CallOptions;
     if (typeof optionsOrCallback === 'function' && callback === undefined) {
       callback = optionsOrCallback;
       options = {};
     } else {
-      options = optionsOrCallback as gax.CallOptions;
+      options = optionsOrCallback as CallOptions;
     }
     options = options || {};
     options.otherArgs = options.otherArgs || {};
@@ -2424,7 +2430,7 @@ export class NotebookServiceClient {
   }
   upgradeInstanceInternal(
     request: protos.google.cloud.notebooks.v1beta1.IUpgradeInstanceInternalRequest,
-    options?: gax.CallOptions
+    options?: CallOptions
   ): Promise<
     [
       LROperation<
@@ -2437,7 +2443,7 @@ export class NotebookServiceClient {
   >;
   upgradeInstanceInternal(
     request: protos.google.cloud.notebooks.v1beta1.IUpgradeInstanceInternalRequest,
-    options: gax.CallOptions,
+    options: CallOptions,
     callback: Callback<
       LROperation<
         protos.google.cloud.notebooks.v1beta1.IInstance,
@@ -2486,7 +2492,7 @@ export class NotebookServiceClient {
   upgradeInstanceInternal(
     request: protos.google.cloud.notebooks.v1beta1.IUpgradeInstanceInternalRequest,
     optionsOrCallback?:
-      | gax.CallOptions
+      | CallOptions
       | Callback<
           LROperation<
             protos.google.cloud.notebooks.v1beta1.IInstance,
@@ -2514,12 +2520,12 @@ export class NotebookServiceClient {
     ]
   > | void {
     request = request || {};
-    let options: gax.CallOptions;
+    let options: CallOptions;
     if (typeof optionsOrCallback === 'function' && callback === undefined) {
       callback = optionsOrCallback;
       options = {};
     } else {
-      options = optionsOrCallback as gax.CallOptions;
+      options = optionsOrCallback as CallOptions;
     }
     options = options || {};
     options.otherArgs = options.otherArgs || {};
@@ -2575,7 +2581,7 @@ export class NotebookServiceClient {
   }
   createEnvironment(
     request: protos.google.cloud.notebooks.v1beta1.ICreateEnvironmentRequest,
-    options?: gax.CallOptions
+    options?: CallOptions
   ): Promise<
     [
       LROperation<
@@ -2588,7 +2594,7 @@ export class NotebookServiceClient {
   >;
   createEnvironment(
     request: protos.google.cloud.notebooks.v1beta1.ICreateEnvironmentRequest,
-    options: gax.CallOptions,
+    options: CallOptions,
     callback: Callback<
       LROperation<
         protos.google.cloud.notebooks.v1beta1.IEnvironment,
@@ -2639,7 +2645,7 @@ export class NotebookServiceClient {
   createEnvironment(
     request: protos.google.cloud.notebooks.v1beta1.ICreateEnvironmentRequest,
     optionsOrCallback?:
-      | gax.CallOptions
+      | CallOptions
       | Callback<
           LROperation<
             protos.google.cloud.notebooks.v1beta1.IEnvironment,
@@ -2667,12 +2673,12 @@ export class NotebookServiceClient {
     ]
   > | void {
     request = request || {};
-    let options: gax.CallOptions;
+    let options: CallOptions;
     if (typeof optionsOrCallback === 'function' && callback === undefined) {
       callback = optionsOrCallback;
       options = {};
     } else {
-      options = optionsOrCallback as gax.CallOptions;
+      options = optionsOrCallback as CallOptions;
     }
     options = options || {};
     options.otherArgs = options.otherArgs || {};
@@ -2724,7 +2730,7 @@ export class NotebookServiceClient {
   }
   deleteEnvironment(
     request: protos.google.cloud.notebooks.v1beta1.IDeleteEnvironmentRequest,
-    options?: gax.CallOptions
+    options?: CallOptions
   ): Promise<
     [
       LROperation<
@@ -2737,7 +2743,7 @@ export class NotebookServiceClient {
   >;
   deleteEnvironment(
     request: protos.google.cloud.notebooks.v1beta1.IDeleteEnvironmentRequest,
-    options: gax.CallOptions,
+    options: CallOptions,
     callback: Callback<
       LROperation<
         protos.google.protobuf.IEmpty,
@@ -2782,7 +2788,7 @@ export class NotebookServiceClient {
   deleteEnvironment(
     request: protos.google.cloud.notebooks.v1beta1.IDeleteEnvironmentRequest,
     optionsOrCallback?:
-      | gax.CallOptions
+      | CallOptions
       | Callback<
           LROperation<
             protos.google.protobuf.IEmpty,
@@ -2810,12 +2816,12 @@ export class NotebookServiceClient {
     ]
   > | void {
     request = request || {};
-    let options: gax.CallOptions;
+    let options: CallOptions;
     if (typeof optionsOrCallback === 'function' && callback === undefined) {
       callback = optionsOrCallback;
       options = {};
     } else {
-      options = optionsOrCallback as gax.CallOptions;
+      options = optionsOrCallback as CallOptions;
     }
     options = options || {};
     options.otherArgs = options.otherArgs || {};
@@ -2867,7 +2873,7 @@ export class NotebookServiceClient {
   }
   listInstances(
     request: protos.google.cloud.notebooks.v1beta1.IListInstancesRequest,
-    options?: gax.CallOptions
+    options?: CallOptions
   ): Promise<
     [
       protos.google.cloud.notebooks.v1beta1.IInstance[],
@@ -2877,7 +2883,7 @@ export class NotebookServiceClient {
   >;
   listInstances(
     request: protos.google.cloud.notebooks.v1beta1.IListInstancesRequest,
-    options: gax.CallOptions,
+    options: CallOptions,
     callback: PaginationCallback<
       protos.google.cloud.notebooks.v1beta1.IListInstancesRequest,
       | protos.google.cloud.notebooks.v1beta1.IListInstancesResponse
@@ -2925,7 +2931,7 @@ export class NotebookServiceClient {
   listInstances(
     request: protos.google.cloud.notebooks.v1beta1.IListInstancesRequest,
     optionsOrCallback?:
-      | gax.CallOptions
+      | CallOptions
       | PaginationCallback<
           protos.google.cloud.notebooks.v1beta1.IListInstancesRequest,
           | protos.google.cloud.notebooks.v1beta1.IListInstancesResponse
@@ -2948,12 +2954,12 @@ export class NotebookServiceClient {
     ]
   > | void {
     request = request || {};
-    let options: gax.CallOptions;
+    let options: CallOptions;
     if (typeof optionsOrCallback === 'function' && callback === undefined) {
       callback = optionsOrCallback;
       options = {};
     } else {
-      options = optionsOrCallback as gax.CallOptions;
+      options = optionsOrCallback as CallOptions;
     }
     options = options || {};
     options.otherArgs = options.otherArgs || {};
@@ -2993,7 +2999,7 @@ export class NotebookServiceClient {
    */
   listInstancesStream(
     request?: protos.google.cloud.notebooks.v1beta1.IListInstancesRequest,
-    options?: gax.CallOptions
+    options?: CallOptions
   ): Transform {
     request = request || {};
     options = options || {};
@@ -3045,7 +3051,7 @@ export class NotebookServiceClient {
    */
   listInstancesAsync(
     request?: protos.google.cloud.notebooks.v1beta1.IListInstancesRequest,
-    options?: gax.CallOptions
+    options?: CallOptions
   ): AsyncIterable<protos.google.cloud.notebooks.v1beta1.IInstance> {
     request = request || {};
     options = options || {};
@@ -3067,7 +3073,7 @@ export class NotebookServiceClient {
   }
   listEnvironments(
     request: protos.google.cloud.notebooks.v1beta1.IListEnvironmentsRequest,
-    options?: gax.CallOptions
+    options?: CallOptions
   ): Promise<
     [
       protos.google.cloud.notebooks.v1beta1.IEnvironment[],
@@ -3077,7 +3083,7 @@ export class NotebookServiceClient {
   >;
   listEnvironments(
     request: protos.google.cloud.notebooks.v1beta1.IListEnvironmentsRequest,
-    options: gax.CallOptions,
+    options: CallOptions,
     callback: PaginationCallback<
       protos.google.cloud.notebooks.v1beta1.IListEnvironmentsRequest,
       | protos.google.cloud.notebooks.v1beta1.IListEnvironmentsResponse
@@ -3124,7 +3130,7 @@ export class NotebookServiceClient {
   listEnvironments(
     request: protos.google.cloud.notebooks.v1beta1.IListEnvironmentsRequest,
     optionsOrCallback?:
-      | gax.CallOptions
+      | CallOptions
       | PaginationCallback<
           protos.google.cloud.notebooks.v1beta1.IListEnvironmentsRequest,
           | protos.google.cloud.notebooks.v1beta1.IListEnvironmentsResponse
@@ -3147,12 +3153,12 @@ export class NotebookServiceClient {
     ]
   > | void {
     request = request || {};
-    let options: gax.CallOptions;
+    let options: CallOptions;
     if (typeof optionsOrCallback === 'function' && callback === undefined) {
       callback = optionsOrCallback;
       options = {};
     } else {
-      options = optionsOrCallback as gax.CallOptions;
+      options = optionsOrCallback as CallOptions;
     }
     options = options || {};
     options.otherArgs = options.otherArgs || {};
@@ -3191,7 +3197,7 @@ export class NotebookServiceClient {
    */
   listEnvironmentsStream(
     request?: protos.google.cloud.notebooks.v1beta1.IListEnvironmentsRequest,
-    options?: gax.CallOptions
+    options?: CallOptions
   ): Transform {
     request = request || {};
     options = options || {};
@@ -3242,7 +3248,7 @@ export class NotebookServiceClient {
    */
   listEnvironmentsAsync(
     request?: protos.google.cloud.notebooks.v1beta1.IListEnvironmentsRequest,
-    options?: gax.CallOptions
+    options?: CallOptions
   ): AsyncIterable<protos.google.cloud.notebooks.v1beta1.IEnvironment> {
     request = request || {};
     options = options || {};
