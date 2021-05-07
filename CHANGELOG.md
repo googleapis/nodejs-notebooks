@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.1.1](https://www.github.com/googleapis/nodejs-notebooks/compare/v1.1.0...v1.1.1) (2021-05-07)
+
+
+### Bug Fixes
+
+* **deps:** require google-gax v2.12.0 ([#50](https://www.github.com/googleapis/nodejs-notebooks/issues/50)) ([06e8e1c](https://www.github.com/googleapis/nodejs-notebooks/commit/06e8e1cd2100e5a78c90be0e3b799b55a63dd5cd))
+
 ## [1.1.0](https://www.github.com/googleapis/nodejs-notebooks/compare/v1.0.2...v1.1.0) (2021-01-09)
 
 
