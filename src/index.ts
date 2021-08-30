@@ -16,12 +16,13 @@
 // ** https://github.com/googleapis/synthtool **
 // ** All changes to this file may be overwritten. **
 
+import * as v1 from './v1';
 import * as v1beta1 from './v1beta1';
 
 const NotebookServiceClient = v1beta1.NotebookServiceClient;
 type NotebookServiceClient = v1beta1.NotebookServiceClient;
 
-export {v1beta1, NotebookServiceClient};
-export default {v1beta1, NotebookServiceClient};
+export {v1, v1beta1, NotebookServiceClient};
+export default {v1, v1beta1, NotebookServiceClient};
 import * as protos from '../protos/protos';
 export {protos};
