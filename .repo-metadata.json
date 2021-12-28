@@ -13,5 +13,5 @@
   "distribution_name": "@google-cloud/notebooks",
   "api_id": "notebooks.googleapis.com",
   "api_shortname": "notebooks",
-  "library_type": ""
+  "library_type": "GAPIC_AUTO"
 }
