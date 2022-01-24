@@ -6,7 +6,6 @@
 
 
 [![npm version](https://img.shields.io/npm/v/@google-cloud/notebooks.svg)](https://www.npmjs.org/package/@google-cloud/notebooks)
-[![codecov](https://img.shields.io/codecov/c/github/googleapis/nodejs-notebooks/main.svg?style=flat)](https://codecov.io/gh/googleapis/nodejs-notebooks)
 
 
 
