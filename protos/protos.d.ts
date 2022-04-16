@@ -499,9 +499,6 @@ export namespace google {
 
                     /** ExecutionTemplate dataprocParameters */
                     dataprocParameters?: (google.cloud.notebooks.v1.ExecutionTemplate.IDataprocParameters|null);
-
-                    /** ExecutionTemplate kernelSpec */
-                    kernelSpec?: (string|null);
                 }
 
                 /** Represents an ExecutionTemplate. */
@@ -548,9 +545,6 @@ export namespace google {
 
                     /** ExecutionTemplate dataprocParameters. */
                     public dataprocParameters?: (google.cloud.notebooks.v1.ExecutionTemplate.IDataprocParameters|null);
-
-                    /** ExecutionTemplate kernelSpec. */
-                    public kernelSpec: string;
 
                     /** ExecutionTemplate jobParameters. */
                     public jobParameters?: "dataprocParameters";

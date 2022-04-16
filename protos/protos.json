@@ -190,10 +190,6 @@
                         "dataprocParameters": {
                           "type": "DataprocParameters",
                           "id": 12
-                        },
-                        "kernelSpec": {
-                          "type": "string",
-                          "id": 13
                         }
                       },
                       "nested": {
