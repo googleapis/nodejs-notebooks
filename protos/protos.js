@@ -1154,6 +1154,7 @@
                          * @property {string|null} [serviceAccount] ExecutionTemplate serviceAccount
                          * @property {google.cloud.notebooks.v1.ExecutionTemplate.JobType|null} [jobType] ExecutionTemplate jobType
                          * @property {google.cloud.notebooks.v1.ExecutionTemplate.IDataprocParameters|null} [dataprocParameters] ExecutionTemplate dataprocParameters
+                         * @property {string|null} [kernelSpec] ExecutionTemplate kernelSpec
                          */
     
                         /**
@@ -1268,6 +1269,14 @@
                          */
                         ExecutionTemplate.prototype.dataprocParameters = null;
     
+                        /**
+                         * ExecutionTemplate kernelSpec.
+                         * @member {string} kernelSpec
+                         * @memberof google.cloud.notebooks.v1.ExecutionTemplate
+                         * @instance
+                         */
+                        ExecutionTemplate.prototype.kernelSpec = "";
+    
                         // OneOf field names bound to virtual getters and setters
                         var $oneOfFields;
     
@@ -1331,6 +1340,8 @@
                                 writer.uint32(/* id 11, wireType 0 =*/88).int32(message.jobType);
                             if (message.dataprocParameters != null && Object.hasOwnProperty.call(message, "dataprocParameters"))
                                 $root.google.cloud.notebooks.v1.ExecutionTemplate.DataprocParameters.encode(message.dataprocParameters, writer.uint32(/* id 12, wireType 2 =*/98).fork()).ldelim();
+                            if (message.kernelSpec != null && Object.hasOwnProperty.call(message, "kernelSpec"))
+                                writer.uint32(/* id 13, wireType 2 =*/106).string(message.kernelSpec);
                             return writer;
                         };
     
@@ -1419,6 +1430,9 @@
                                     break;
                                 case 12:
                                     message.dataprocParameters = $root.google.cloud.notebooks.v1.ExecutionTemplate.DataprocParameters.decode(reader, reader.uint32());
+                                    break;
+                                case 13:
+                                    message.kernelSpec = reader.string();
                                     break;
                                 default:
                                     reader.skipType(tag & 7);
@@ -1520,6 +1534,9 @@
                                         return "dataprocParameters." + error;
                                 }
                             }
+                            if (message.kernelSpec != null && message.hasOwnProperty("kernelSpec"))
+                                if (!$util.isString(message.kernelSpec))
+                                    return "kernelSpec: string expected";
                             return null;
                         };
     
@@ -1610,6 +1627,8 @@
                                     throw TypeError(".google.cloud.notebooks.v1.ExecutionTemplate.dataprocParameters: object expected");
                                 message.dataprocParameters = $root.google.cloud.notebooks.v1.ExecutionTemplate.DataprocParameters.fromObject(object.dataprocParameters);
                             }
+                            if (object.kernelSpec != null)
+                                message.kernelSpec = String(object.kernelSpec);
                             return message;
                         };
     
@@ -1639,6 +1658,7 @@
                                 object.parameters = "";
                                 object.serviceAccount = "";
                                 object.jobType = options.enums === String ? "JOB_TYPE_UNSPECIFIED" : 0;
+                                object.kernelSpec = "";
                             }
                             if (message.scaleTier != null && message.hasOwnProperty("scaleTier"))
                                 object.scaleTier = options.enums === String ? $root.google.cloud.notebooks.v1.ExecutionTemplate.ScaleTier[message.scaleTier] : message.scaleTier;
@@ -1671,6 +1691,8 @@
                                 if (options.oneofs)
                                     object.jobParameters = "dataprocParameters";
                             }
+                            if (message.kernelSpec != null && message.hasOwnProperty("kernelSpec"))
+                                object.kernelSpec = message.kernelSpec;
                             return object;
                         };
     
